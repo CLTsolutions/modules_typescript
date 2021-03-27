@@ -12,7 +12,7 @@ Remember in the JS fn the following are true:
   ** ANNOTATIONS **
 ********************/
 //TS brings type safety to parameters and keeps us from adding unneeded arguments to fns
-function addNumbers(numOne: number, numTwo: number) {
+function addNumbers(numOne, numTwo) {
     return numOne + numTwo;
 }
 //works
@@ -20,13 +20,11 @@ addNumbers(1, 2);
 //errs
 // addNumbers(1, 2, 3);
 // addNumbers(1, 2, 3, 'Foo');
-
 //PRACTICE - add another Ts fn that concatenates two strings(firstName & lastName) and returns a fullName.
-function twoStrings (firstName: string, lastName: string) {
+function twoStrings(firstName, lastName) {
     return firstName + lastName;
 }
 twoStrings('Chelsey ', 'Tschida');
-
 /* *****************
   ** RETURN TYPES **
 ********************/
@@ -36,14 +34,13 @@ twoStrings('Chelsey ', 'Tschida');
 3) We call the fn and pass in a string argument. The argument satisfies the return type. So this fn works.
 4) We call the fn and pass in the wrong return type. The argument does not satisfy the return type, and so this would break.
 */
-function sayHello(name: string) : string {
+function sayHello(name) {
     return name;
 }
 sayHello('Chelsey');
 // err
 // sayHello(1);
-
-function practiceFn(username: string, password: string) : boolean {
+function practiceFn(username, password) {
     if (username === 'elevenfiftyuser' && password === 'Letmein1234!') {
         return true;
     }
@@ -51,14 +48,12 @@ function practiceFn(username: string, password: string) : boolean {
 }
 practiceFn('elevenfiftyuser', 'Letmein1234');
 practiceFn('chelsey', '1234');
-
 /* *****************
   ** OPTIONALS **
 ********************/
 //allow for flexibility in our parameters.
 //can allow an argument to be left out if needed
 //declared using ? after them.
-
 /*
 -The first two parameters are not optional.
 -someString parameter is optional.
@@ -71,13 +66,12 @@ practiceFn('chelsey', '1234');
 KEY RULE:
 Optional params must go after all required params
 */
-function addNumbersWithOptional(numOne: number, numTwo: number, someString?: string) {
+function addNumbersWithOptional(numOne, numTwo, someString) {
     console.log(someString);
-    return numOne + numTwo;    
+    return numOne + numTwo;
 }
 addNumbersWithOptional(1, 2);
 addNumbersWithOptional(1, 2, 'This is optional');
-
 /*
 PRACTICE:
 - Write a function that has three parameters: first, middle, last.
@@ -85,8 +79,7 @@ PRACTICE:
 - If a value is passed in for middle, concatenate the full name and include the middle name.
 - If a value is not passed in for middle, concatenate the full name with just first and last.
 */
-
-function practiceWithOptional(first: string, last: string, middle?: string) {
+function practiceWithOptional(first, last, middle) {
     if (typeof middle === 'string') {
         return first + middle + last;
     }
@@ -94,3 +87,4 @@ function practiceWithOptional(first: string, last: string, middle?: string) {
 }
 practiceWithOptional('Chelsey ', 'Tschida', 'Lynne ');
 practiceWithOptional('Chelsey ', 'Tschida');
+//# sourceMappingURL=02-functions.js.map
