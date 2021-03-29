@@ -236,9 +236,10 @@ let ikea: Store = new Store('Ikea', 'Fishers');
  ** ACCESSORS **
 *****************/
 //JS has public and private accessors which are taken care of in the constructor
+//In terms of classes, allows us to keep certain members private to the class for internal use.
 /*
 ANALYSIS:
-1) Have a class called Employee that extends Person
+1) Have a class called Employee that extends Person (from above).
 2) Created a private property denoted by the 'private' keyword.
 3) Common practice to see private properties in classes start with an underscore.
     -- not required just a common convention.

@@ -17,6 +17,7 @@ function addNumbers(numOne: number, numTwo: number) {
 }
 //works
 addNumbers(1, 2);
+console.log(addNumbers(1, 2));
 //errs
 // addNumbers(1, 2, 3);
 // addNumbers(1, 2, 3, 'Foo');
@@ -25,7 +26,8 @@ addNumbers(1, 2);
 function twoStrings (firstName: string, lastName: string) {
     return firstName + lastName;
 }
-twoStrings('Chelsey ', 'Tschida');
+twoStrings('Chelsey ', 'Tschida')
+console.log(twoStrings('Chelsey ', 'Tschida'));
 
 /* *****************
   ** RETURN TYPES **
@@ -40,6 +42,8 @@ function sayHello(name: string) : string {
     return name;
 }
 sayHello('Chelsey');
+console.log(sayHello('Chelsey'));
+
 // err
 // sayHello(1);
 
@@ -49,8 +53,10 @@ function practiceFn(username: string, password: string) : boolean {
     }
     return false;
 }
-practiceFn('elevenfiftyuser', 'Letmein1234');
-practiceFn('chelsey', '1234');
+practiceFn('elevenfiftyuser', 'Letmein1234')
+practiceFn('chelsey', '1234')
+console.log(practiceFn('elevenfiftyuser', 'Letmein1234'));
+console.log(practiceFn('chelsey', '1234'));
 
 /* *****************
   ** OPTIONALS **
@@ -77,6 +83,9 @@ function addNumbersWithOptional(numOne: number, numTwo: number, someString?: str
 }
 addNumbersWithOptional(1, 2);
 addNumbersWithOptional(1, 2, 'This is optional');
+console.log(addNumbersWithOptional(1, 2));
+console.log(addNumbersWithOptional(1, 2, 'This is optional'));
+
 
 /*
 PRACTICE:
@@ -92,5 +101,7 @@ function practiceWithOptional(first: string, last: string, middle?: string) {
     }
     return first + last;
 }
-practiceWithOptional('Chelsey ', 'Tschida', 'Lynne ');
-practiceWithOptional('Chelsey ', 'Tschida');
+practiceWithOptional('Chelsey ', 'Tschida', 'Lynne ')
+practiceWithOptional('Chelsey ', 'Tschida')
+console.log(practiceWithOptional('Chelsey ', 'Tschida', 'Lynne '));
+console.log(practiceWithOptional('Chelsey ', 'Tschida'));

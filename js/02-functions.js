@@ -17,6 +17,7 @@ function addNumbers(numOne, numTwo) {
 }
 //works
 addNumbers(1, 2);
+console.log(addNumbers(1, 2));
 //errs
 // addNumbers(1, 2, 3);
 // addNumbers(1, 2, 3, 'Foo');
@@ -25,6 +26,7 @@ function twoStrings(firstName, lastName) {
     return firstName + lastName;
 }
 twoStrings('Chelsey ', 'Tschida');
+console.log(twoStrings('Chelsey ', 'Tschida'));
 /* *****************
   ** RETURN TYPES **
 ********************/
@@ -38,6 +40,7 @@ function sayHello(name) {
     return name;
 }
 sayHello('Chelsey');
+console.log(sayHello('Chelsey'));
 // err
 // sayHello(1);
 function practiceFn(username, password) {
@@ -48,6 +51,8 @@ function practiceFn(username, password) {
 }
 practiceFn('elevenfiftyuser', 'Letmein1234');
 practiceFn('chelsey', '1234');
+console.log(practiceFn('elevenfiftyuser', 'Letmein1234'));
+console.log(practiceFn('chelsey', '1234'));
 /* *****************
   ** OPTIONALS **
 ********************/
@@ -72,6 +77,8 @@ function addNumbersWithOptional(numOne, numTwo, someString) {
 }
 addNumbersWithOptional(1, 2);
 addNumbersWithOptional(1, 2, 'This is optional');
+console.log(addNumbersWithOptional(1, 2));
+console.log(addNumbersWithOptional(1, 2, 'This is optional'));
 /*
 PRACTICE:
 - Write a function that has three parameters: first, middle, last.
@@ -87,4 +94,6 @@ function practiceWithOptional(first, last, middle) {
 }
 practiceWithOptional('Chelsey ', 'Tschida', 'Lynne ');
 practiceWithOptional('Chelsey ', 'Tschida');
+console.log(practiceWithOptional('Chelsey ', 'Tschida', 'Lynne '));
+console.log(practiceWithOptional('Chelsey ', 'Tschida'));
 //# sourceMappingURL=02-functions.js.map
