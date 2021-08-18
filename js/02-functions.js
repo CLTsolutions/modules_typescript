@@ -1,84 +1,88 @@
 /*
-Remember in the JS fn the following are true:
---We can call the function with a number as the argument.
---We can call the function with a string as an argument.
---We can add arguments that weren't originally declared.
+Remember that in the JS fn the following are true:
+- We can call the fn with a number as the argument.
+- We can call the fn with a string as an argument.
+- We can add arguments that weren't originally declared.
 
--This freedom is loved by some and despised by others.
--TS helps us solve this issue by providing some possibilities for constraints.
--TS allows us to bring types to our parameters and limits to the num of arguments we pass in.
+This freedom is loved by some and despised by others.
+TS helps us solve this issue by providing some possibilities for constraints.
+TS allows us to bring types to our parameters and limits to the num of arguments we pass in.
 */
 /* *****************
-  ** ANNOTATIONS **
-********************/
-//TS brings type safety to parameters and keeps us from adding unneeded arguments to fns
+ ** ANNOTATIONS **
+ ********************/
+// TS brings type safety to params
+// TS also keeps us from adding unneeded arguments to fns
 function addNumbers(numOne, numTwo) {
     return numOne + numTwo;
 }
-//works
+// works
 addNumbers(1, 2);
-console.log(addNumbers(1, 2));
-//errs
+console.log(addNumbers(1, 2)); // 3
+// errs
 // addNumbers(1, 2, 3);
 // addNumbers(1, 2, 3, 'Foo');
-//PRACTICE - add another Ts fn that concatenates two strings(firstName & lastName) and returns a fullName.
+// PRACTICE - add another TS fn that concatenates two strings(firstName & lastName) and rtns a fullName.
 function twoStrings(firstName, lastName) {
     return firstName + lastName;
 }
 twoStrings('Chelsey ', 'Tschida');
-console.log(twoStrings('Chelsey ', 'Tschida'));
+console.log(twoStrings('Chelsey ', 'Tschida')); // Chelsey Tschida
 /* *****************
-  ** RETURN TYPES **
-********************/
+ ** RETURN TYPES **
+ ********************/
 /*
 1) We create a type for our parameter, a string.
-2) We use the colon followed by a type to denote a return type.
-3) We call the fn and pass in a string argument. The argument satisfies the return type. So this fn works.
-4) We call the fn and pass in the wrong return type. The argument does not satisfy the return type, and so this would break.
+2) We use the colon followed by a type to denote a rtn type.
+3) We call the fn and pass in a string arg.
+- The argument satisfies the rtn type. So this fn works.
+4) We call the fn and pass in the wrong rtn type.
+- The arg does not satisfy the return type
+-- so this would break.
 */
 function sayHello(name) {
     return name;
 }
 sayHello('Chelsey');
-console.log(sayHello('Chelsey'));
+console.log(sayHello('Chelsey')); // Chelsey
 // err
 // sayHello(1);
+// challenge
 function practiceFn(username, password) {
-    if (username === 'elevenfiftyuser' && password === 'Letmein1234!') {
-        return true;
-    }
-    return false;
+    return username !== 'elevenfiftyuser' && password !== 'Letmein1234!'
+        ? false
+        : true;
 }
 practiceFn('elevenfiftyuser', 'Letmein1234');
 practiceFn('chelsey', '1234');
-console.log(practiceFn('elevenfiftyuser', 'Letmein1234'));
-console.log(practiceFn('chelsey', '1234'));
+console.log(practiceFn('elevenfiftyuser', 'Letmein1234')); // true
+console.log(practiceFn('chelsey', '1234')); // false
 /* *****************
-  ** OPTIONALS **
-********************/
-//allow for flexibility in our parameters.
-//can allow an argument to be left out if needed
-//declared using ? after them.
+ ** OPTIONALS **
+ ********************/
+// allow for flexibility in our parameters.
+// can allow an argument to be left out if needed
+// declared using ? after them.
 /*
--The first two parameters are not optional.
--someString parameter is optional.
-    --since optional, it does not require an argument when the fn is called.
---We can also call the fn with an argument provided for someString.
---If you hover over the fn call, you'll notice the type of is a union type of string | undefined
-    --If a value is passed in, it should be of type string. If value is not passed in, it is of
-        --type undefined.
+- The first two params are not optional.
+- someString param is optional.
+-- since optional, it does not require an argument when the fn is called.
+-- We can also call the fn with an argument provided for someString.
+-- Hover over the fn call and notice type is a union type (string | undefined)
+--- If value is passed in, it's of type string.
+--- If value is not passed in, it's of type undefined.
 
 KEY RULE:
 Optional params must go after all required params
 */
 function addNumbersWithOptional(numOne, numTwo, someString) {
-    console.log(someString);
+    console.log(someString); // undefined
     return numOne + numTwo;
 }
 addNumbersWithOptional(1, 2);
-addNumbersWithOptional(1, 2, 'This is optional');
-console.log(addNumbersWithOptional(1, 2));
-console.log(addNumbersWithOptional(1, 2, 'This is optional'));
+addNumbersWithOptional(1, 2, 'This is optional'); // This is optional
+console.log(addNumbersWithOptional(1, 2)); // 3
+console.log(addNumbersWithOptional(1, 2, 'This is optional')); // 3 This is optional
 /*
 PRACTICE:
 - Write a function that has three parameters: first, middle, last.
@@ -94,6 +98,6 @@ function practiceWithOptional(first, last, middle) {
 }
 practiceWithOptional('Chelsey ', 'Tschida', 'Lynne ');
 practiceWithOptional('Chelsey ', 'Tschida');
-console.log(practiceWithOptional('Chelsey ', 'Tschida', 'Lynne '));
-console.log(practiceWithOptional('Chelsey ', 'Tschida'));
+console.log(practiceWithOptional('Chelsey ', 'Tschida', 'Lynne ')); // Chelsey Lynne Tschida
+console.log(practiceWithOptional('Chelsey ', 'Tschida')); // Chelsey Tschida
 //# sourceMappingURL=02-functions.js.map

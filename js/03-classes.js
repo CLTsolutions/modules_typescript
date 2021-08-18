@@ -1,6 +1,6 @@
 /*
-With TS we are more able to build a development environment that highly resembles a classical OOP
-environment, allowing for type safety and for instantiation of custom types/classes.
+TS lets us build a development environment that highly resembles a classical OOP
+-- This allows for type safety and for instantiation of custom types/classes.
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
@@ -19,72 +19,80 @@ var __extends = (this && this.__extends) || (function () {
 })();
 /* ****************
  ** PROPERTIES **
-******************/
-//creating new class called 'Person'. - not part of TS rather ES6
-//Created 2 properties with types in that class.
-//TS allows us to set types of these properties as in traditional OOP lang
-//must hold string values
-//We instantiate(create an instance) of the class by setting the type to and calling the keyword 
-//--to create a new instance of the class.
+ ******************/
+// With class keyword, created new class called 'Person'.
+// - not part of TS but rather ES6
+// Created 2 properties with types in that class.
+// TS allows us to set types of these properties as in traditional OOP lang
+// -- when we instantiate the class & use these props, they must be string values
+// We instantiate (create an instance) of the class by:
+// - setting the type to Person and calling the NEW keyword
+// -- this creates a new instance of the class.
 var Person = /** @class */ (function () {
     function Person() {
     }
-    //method - see below notes
+    // method - see below notes
     Person.prototype.sayHello = function () {
+        // this.firstName refers to the firstName for the specific instance
         console.log('Hello', this.firstName);
     };
-    //practice
+    // practice
     Person.prototype.sayHelloToFullName = function () {
         console.log('Hello,', this.firstName, this.lastName);
     };
     return Person;
 }());
 var phil = new Person();
+// property of firstName 'Phil' for this specific instance
 phil.firstName = 'Phil';
 phil.lastName = 'Donahue';
 /********************
  ** INSTANTIATION **
-*********************/
+ *********************/
 /*
-Instantiation means to create a new instance of a class. Think of the class as the cookie-cutter,
-and the object as the cookie. The cookie cutter is used over and over to make new cookies. Each cookie might have different property values, but at the end of the day, they are all cookies.
+Instantiation means to create a new instance of a class.
+Think of the class as the cookie-cutter and the object as the cookie.
+- The cookie cutter is used over and over to make new cookies.
+- Each cookie might have different property values, but they are all cookies.
 */
 /*
 Closer look at above pattern:
--We declare a variable with our own custom name.
--We declare the type. It's a custom type of Person.
--We use the 'new' keyword to instantiate a new instance.
--We call the class with parens. The parens invoke the constructor function.
+- We declare a variable with our own custom name.
+- We declare the type. It's a custom type of Person.
+- We use the 'new' keyword to instantiate a new instance.
+- We call the class with parens. The parens invoke the constructor function.
 */
 var someVariableName = new Person();
 /* *************
-  ** METHODS **
+ ** METHODS **
  ***************/
 /*
--Methods are functions inside the body of a class (see above inside 'Person' class)
-**Analysis of sayHello() (above):
+Methods are fns inside the body of a class (see above inside 'Person' class)
+** Analysis of sayHello() (above):
 ABOVE:
-1) These two variables are the properties of the class. They should be above the methods.
-2) A method. This is a fn that prints "Hello, " then a name to the console.
-3) 'this.firstName' Will refer to the firstName for the specific instance.
+1) Two variables are properties of the class and should be above the methods.
+2) A method is a fn that prints "Hello" then a name to the console.
+3) 'this.firstName' will refer to the firstName for the specific instance.
+
 BELOW:
 4) We instantiate the Person() class with a variable name of 'kenn'.
 5) We set the property of firstName to "Kenn" for this specific instance.
-6) We call the method on the kenn object. Because the firstName of 'kenn' is set to "Kenn",
-    -- this will print "Hello Kenn" to the console.
+6) We call the method on the kenn object.
+- Because the firstName of 'kenn' is set to "Kenn" this will print "Hello Kenn" to the console.
 
 KEY RULE:
 with methods in our class that you don't have to use the fn keyword
 */
 var kenn = new Person();
 kenn.firstName = 'Kenn';
+// calling method on kenn obj
 kenn.sayHello();
 /*
 PRACTICE (fn in above class):
--Create a method called sayHelloToFullname that says hello to someone by full name.
--Instantiate(create a new instance of) the person class.
--Set the first name property to 'Sheriff' and the last name property to 'Holler'.
--Call the sayHelloToFullname method on the instance of the class.
+- Create a method called sayHelloToFullname that says hello to someone by full name.
+- Instantiate(create a new instance of) the person class.
+- Set the first name property to 'Sheriff' and the last name property to 'Holler'.
+- Call the sayHelloToFullname method on the instance of the class.
 */
 var sheriff = new Person();
 sheriff.firstName = 'Sheriff';
@@ -92,15 +100,15 @@ sheriff.lastName = 'Holler';
 sheriff.sayHelloToFullName();
 /********************
  ** CONSTRUCTORS **
-*********************/
-//a constructor allows us to more easily and efficiently create an instance of a class by enabling
-//--us to instantiate the class (create new instance of the class) and set properties at the same time
+ *********************/
+// constructors allow us to easily and efficiently create an instance of a class
+// they enable us to instantiate the class and set properties at the same time
 /*
 ANALYSIS:
 1) We create a new class called Game.
-2) We create a constructor for the class that takes in a parameter that is of type string.
+2) The constructor for the class takes in a parameter that is of type string.
 3) We set up a property called 'gameName'.
-4) We set the value of gameName equal to the value that is passed into the constructor's argument.
+4) The value of gameName is set equal to the value passed into the constructor's arg.
 5) We create an instance of the Game class called battleship
 6) We pass in values to satisfy the requirements of the constructor. If we do not pass values in
     --for the constructor's arguments, we get an error.
@@ -130,7 +138,7 @@ monopoly.gameName = 'Monopoly';
 monopoly.gameMaker = 'Hasbro';
 /********************
  ** INHERITANCE **
-*********************/
+ *********************/
 //pillar of OOP and as of ES6, JS allows for inheritance with quasi class based approach
 //parent class - holds all properties that are going to be universal to all vehicles
 //with inheritance can make subclasses of 'Vehicle' that hold these properties along with
@@ -206,7 +214,7 @@ someTiger.stripes = true;
 someTiger.teeth = true;
 /****************************
  ** PARAMETERS PROPERTIES **
-*****************************/
+ *****************************/
 //allows classes to be even more streamlined by allowing property and accessor type declaration
 //--in constructor parameters.
 // class Store {
@@ -238,7 +246,7 @@ var Store = /** @class */ (function () {
 var ikea = new Store('Ikea', 'Fishers');
 /****************
  ** ACCESSORS **
-*****************/
+ *****************/
 //JS has public and private accessors which are taken care of in the constructor
 //In terms of classes, allows us to keep certain members private to the class for internal use.
 /*
