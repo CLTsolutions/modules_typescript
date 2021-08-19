@@ -1,8 +1,8 @@
 /*
--Interfaces often associate with the idea of coding with intent and defining what we're
-    --going to need for something before we get into weeds of creating that thing.
-- Aren't used to create objects just shape them.
-- impose on an obj or class to dictate certain aspects of how that obj should be shaped.
+// Interfaces are coding with intent
+// Defining what we're going to need for something before we create the thing.
+// Aren't used to create objects just shape them.
+// Impose on an obj or class to dictate how that obj should be shaped.
 
 ONE RULE: can't instantiate them
 - blow throws error
