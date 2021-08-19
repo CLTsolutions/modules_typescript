@@ -41,10 +41,10 @@ phil.lastName = 'Donahue'
  ** INSTANTIATION **
  *********************/
 /*
-Instantiation means to create a new instance of a class.
-Think of the class as the cookie-cutter and the object as the cookie.
-- The cookie cutter is used over and over to make new cookies.
-- Each cookie might have different property values, but they are all cookies.
+// Instantiation means to create a new instance of a class.
+// Think of the class as the cookie-cutter and the object as the cookie.
+//- The cookie cutter is used over and over to make new cookies.
+//- Each cookie might have different property values, but they are all cookies.
 */
 
 /*
@@ -60,9 +60,9 @@ let someVariableName: Person = new Person()
  ** METHODS **
  ***************/
 /*
-Methods are fns inside the body of a class (see above inside 'Person' class)
-** Analysis of sayHello() (above):
-ABOVE:
+// Methods are fns inside the body of a class (see above inside 'Person' class)
+// Analysis of sayHello() (above):
+// ABOVE:
 1) Two variables are properties of the class and should be above the methods.
 2) A method is a fn that prints "Hello" then a name to the console.
 3) 'this.firstName' will refer to the firstName for the specific instance.
@@ -106,8 +106,8 @@ ANALYSIS:
 3) We set up a property called 'gameName'.
 4) The value of gameName is set equal to the value passed into the constructor's arg.
 5) We create an instance of the Game class called battleship
-6) We pass in values to satisfy the requirements of the constructor. If we do not pass values in
-    --for the constructor's arguments, we get an error.
+6) We pass in values to satisfy the requirements of the constructor.
+-- If we do not pass values in for the constructor's arguments, we get an error.
 */
 class Game {
   constructor(name: string, maker: string) {
@@ -120,13 +120,14 @@ class Game {
 
 let battleship: Game = new Game('Battleship', 'Hasbro')
 
-// 6) from analysis - throws error because two arguments are required in the parens
+// 6) from analysis - throws err because two arguments are required in the parens
 // let battleship: Game = new Game();
 
 /*
 ANALYSIS:
 1) Here we instantiate the class with no constructor.
-2) We have to set each of the properties one at a time. With a constructor this could be done in one line of code.
+2) We have to set each of the properties one at a time.
+- With a constructor this could be done in one line of code.
 */
 class GameWithoutConstructor {
   gameName: string
@@ -140,21 +141,23 @@ monopoly.gameMaker = 'Hasbro'
 /********************
  ** INHERITANCE **
  *********************/
-//pillar of OOP and as of ES6, JS allows for inheritance with quasi class based approach
+// pillar of OOP and as of ES6
+// JS allows for inheritance with quasi class based approach
 
-//parent class - holds all properties that are going to be universal to all vehicles
-//with inheritance can make subclasses of 'Vehicle' that hold these properties along with
-//properties that are unique to the subclass.
+// parent class holds all properties that are universal to all vehicles
+// with inheritance can make subclasses of 'Vehicle'
+// 'Vehicle' can hold these props along with props unique to the subclass.
 
 /*
 ANALYSIS:
-1) The 'extends' keyword declares that the class is going to inherit all of the properties and
-    -- methods from another class. This is called subclassing. Both 'Motorcycle' and 'Automobile'
-        -- inherit from 'Vehicle'.
-2) Note that these are properties declared in the subclass. The Motorcycle class does not have
-    -- access to the 'isSelfDriving' property and the 'Automobile' class does not have access to
-        --'easyToDoWheelie'.
-3) These are properties from the parent class, the 'Vehicle' class. They are inherited properties.
+1) 'extends' means the class is going to inherit all props and methods from another class.
+// - This is called subclassing.
+// - Both 'Motorcycle' and 'Automobile' inherit from 'Vehicle'.
+2) These are props declared in the subclass.
+// - Motorcycle class does not have access to the 'isSelfDriving' prop
+// - The 'Automobile' class does not have access to 'easyToDoWheelie'.
+3) These are props from the parent class ('Vehicle').
+// - They are inherited properties.
 */
 class Vehicle {
   type: string
@@ -165,12 +168,12 @@ class Vehicle {
 }
 
 class Automobile extends Vehicle {
-  isSelfDriving: boolean //2
+  isSelfDriving: boolean // 2
 }
 
 let myCar: Automobile = new Automobile()
 myCar.isSelfDriving = false
-myCar.topSpeed = 200 //3
+myCar.topSpeed = 200 // 3
 myCar.make = 'Volvo'
 
 class Motorcycle extends Vehicle {
@@ -215,29 +218,36 @@ someTiger.teeth = true
 /****************************
  ** PARAMETERS PROPERTIES **
  *****************************/
-//allows classes to be even more streamlined by allowing property and accessor type declaration
-//--in constructor parameters.
-// class Store {
-//     constructor(name: string, city: string) {
-//         this.name = name;
-//         this.city = city;
-//     }
-//     name: string;
-//     city: string;
-// }
+// allows classes to be even more streamlined
+// - can declare prop and accessor type in constructor parameters.
 
-// let ikea: Store = new Store('Ikea', 'Fishers');
+/*
+class Store {
+    constructor(name: string, city: string) {
+        this.name = name;
+        this.city = city;
+    }
+    name: string;
+    city: string;
+}
 
-//TS can streamline a lot of the code in the constructor (refactoring above)
+// TS can streamline a lot of the code in the constructor (refactoring below))
+class Store {
+  constructor(public name: string, public city: string) {}
+}
+
+let ikea: Store = new Store('Ikea', 'Fishers');
+
+
+*/
 
 /*
 ANALYSIS
-- Again, the code above is a shorter version of the first Store class.
-1) Added public accessor. It's required for this approach.
-2) This approach doesn't have to do all of the bindings for properties inside of the constructor.
-    -- Don't need this.name = name;
-    -- TS infers there is a property called a name that will be the value of the argument
-        --passed into the constructor.
+- The code above is a shorter version of the first Store class.
+1) Added public accessor (required for this approach).
+2) This approach doesn't have to do all of the bindings for props inside of the constructor.
+- Don't need this.name = name;
+- TS infers there is a property called a name that will be the value of the arg passed into the constructor.
 */
 class Store {
   constructor(public name: string, public city: string) {}
@@ -247,18 +257,19 @@ let ikea: Store = new Store('Ikea', 'Fishers')
 /****************
  ** ACCESSORS **
  *****************/
-//JS has public and private accessors which are taken care of in the constructor
-//In terms of classes, allows us to keep certain members private to the class for internal use.
+// JS has public and private accessors (taken care of in constructor)
+// In terms of classes, allows us to keep certain members private to the class for internal use.
 /*
 ANALYSIS:
-1) Have a class called Employee that extends Person (from above).
+1) Class called Employee that extends Person (from above).
 2) Created a private property denoted by the 'private' keyword.
 3) Common practice to see private properties in classes start with an underscore.
-    -- not required just a common convention.
-4) Have a method called setSalary that takes in a number. It sets the value of the private
-    -- property to the value that is passed in as an argument. Both are number types.
-5) Have a method called getSalary that returns a string. Inside the method, perform so low-level
-    -- business logic of converting the salary number value to a string in the return statement.
+- not required just a common convention.
+4) Have a method called setSalary that takes in a number.
+- It sets the value of the private property to the value passed in as an argument.
+- Both are num types.
+5) Have a method called getSalary that rtns a string.
+- Inside the method, we perform so low-level business logic of converting the salary number value to a string in the return statement.
 */
 class Employee extends Person {
   private _salary: number
@@ -274,6 +285,6 @@ class Employee extends Person {
 
 let newEmployee: Employee = new Employee()
 newEmployee.setSalary(30000)
-//newEmployee._salary = 0; //This breaks
+// newEmployee._salary = 0; //This breaks
 let salaryResult: string = newEmployee.getSalary()
 console.log('The salary is:', salaryResult)
